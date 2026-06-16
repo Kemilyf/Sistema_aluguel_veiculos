@@ -1,205 +1,179 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SapiensCar- Aluguel de Veículos</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SapiensCar - Aluguel de Veículos</title>
     
-    <!-- Estilos específicos do template Carousel -->
-    <style>
-        /* Espaçamento do corpo para não ficar embaixo da navbar fixa */
-        body {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            color: #5a5a5a;
-        }
+    <script src="assets/js/color-modes.js"></script>
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/style/carousel.css" rel="stylesheet" />
+    <link href="assets/style/style.css" rel="stylesheet" />
+    
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path><path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol>
+    </svg>
 
-        /* Customização do Carrossel */
-        .carousel {
-            margin-bottom: 4rem;
-        }
-        .carousel-caption {
-            bottom: 3rem;
-            z-index: 10;
-        }
-        .carousel-item {
-            height: 32rem;
-            background-color: #777; /* Cor de fundo caso a imagem demore a carregar */
-        }
-        .carousel-item > img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            height: 32rem;
-            object-fit: cover; /* Faz a imagem preencher sem distorcer */
-        }
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Alternar tema</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false"><svg class="bi me-2 opacity-50" aria-hidden="true"><use href="#sun-fill"></use></svg> Claro <svg class="bi ms-auto d-none" aria-hidden="true"><use href="#check2"></use></svg></button></li>
+        <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false"><svg class="bi me-2 opacity-50" aria-hidden="true"><use href="#moon-stars-fill"></use></svg> Escuro <svg class="bi ms-auto d-none" aria-hidden="true"><use href="#check2"></use></svg></button></li>
+        <li><button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true"><svg class="bi me-2 opacity-50" aria-hidden="true"><use href="#circle-half"></use></svg> Automático <svg class="bi ms-auto d-none" aria-hidden="true"><use href="#check2"></use></svg></button></li>
+      </ul>
+    </div>
 
-        /* Seção de Marketing (As 3 colunas redondas) */
-        .marketing .col-lg-4 {
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .marketing .col-lg-4 p {
-            margin-right: .75rem;
-            margin-left: .75rem;
-        }
+    <header data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">SapiensCar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Início</a></li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Clientes</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Cadastro_clientes.html">Novo Cliente</a></li>
+                  <li><a class="dropdown-item" href="Listagem_de_clientes.html">Consultar Clientes</a></li>
+                </ul>
+              </li>
 
-        /* Divisores das Featurettes (blocos de texto e imagem alternados) */
-        .featurette-divider {
-            margin: 5rem 0;
-        }
-        .featurette-heading {
-            letter-spacing: -.05rem;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Cabeçalho / Navbar Fixa -->
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">SapiensCar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Início</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Clientes</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="cadastro-cliente.html">Novo Cliente</a></li>
-                                <li><a class="dropdown-item" href="lista-clientes.html">Listar Clientes</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Veículos</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="cadastro-veiculo.html">Novo Veículo</a></li>
-                                <li><a class="dropdown-item" href="lista-veiculos.html">Listar Veículos</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar placa..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Veículos</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Cadastro_veiculos.html">Novo Veículo</a></li>
+                  <li><a class="dropdown-item" href="Listagem_veiculos.html">Nossa Frota</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Buscar placa..." aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <!-- Carrossel de Imagens -->
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop" class="bd-placeholder-img w-100 h-100 carousel-img" alt="Carro em movimento">
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1>A Liberdade de Dirigir.</h1>
+                <p class="opacity-75">Sua próxima viagem começa aqui com a SapiensCar. Frota revisada e pronta para você.</p>
+                <p><a class="btn btn-lg btn-primary" href="Cadastro_clientes.html">Cadastre-se Hoje</a></p>
+              </div>
             </div>
-            <div class="carousel-inner">
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop" alt="Carro na estrada">
-                    <div class="container">
-                        <div class="carousel-caption text-start">
-                            <h1>A Liberdade de Dirigir.</h1>
-                            <p>Temos a frota mais nova e revisada do mercado. Alugue sem burocracia e com total segurança.</p>
-                            <p><a class="btn btn-lg btn-primary" href="cadastro-cliente.html">Cadastre-se Hoje</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1920&auto=format&fit=crop" alt="Carro executivo">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Categorias Premium.</h1>
-                            <p>Veículos executivos e SUVs com preços imbatíveis para sua viagem de negócios ou lazer.</p>
-                            <p><a class="btn btn-lg btn-primary" href="lista-veiculos.html">Ver Frota</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=1920&auto=format&fit=crop" alt="Chave do carro">
-                    <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1>Gestão Inteligente.</h1>
-                            <p>Controle de locações, faturamento e disponibilidade de veículos em tempo real.</p>
-                            <p><a class="btn btn-lg btn-primary" href="cadastro-veiculo.html">Área do Administrador</a></p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1920&auto=format&fit=crop" class="bd-placeholder-img w-100 h-100 carousel-img" alt="Carro de luxo">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Categorias Premium.</h1>
+                <p>Veículos executivos e SUVs com preços imbatíveis para sua viagem de negócios ou lazer.</p>
+                <p><a class="btn btn-lg btn-primary" href="Listagem_veiculos.html">Ver Frota</a></p>
+              </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
+          </div>
+          
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=1920&auto=format&fit=crop" class="bd-placeholder-img w-100 h-100 carousel-img" alt="Chave de carro">
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>Gestão Inteligente.</h1>
+                <p>Controle total sobre locações, faturamento e disponibilidade em tempo real.</p>
+                <p><a class="btn btn-lg btn-primary" href="Cadastro_veiculos.html">Painel do Admin</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4 text-center">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect><text x="50%" y="50%" fill="#fff" dy=".3em" text-anchor="middle">1.0</text></svg>
+            <h2 class="fw-normal mt-3">Econômicos</h2>
+            <p>Perfeitos para o dia a dia na cidade. Baixo consumo de combustível e fáceis de estacionar.</p>
+            <p><a class="btn btn-secondary" href="Listagem_veiculos.html">Ver modelos &raquo;</a></p>
+          </div>
+          
+          <div class="col-lg-4 text-center">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect><text x="50%" y="50%" fill="#fff" dy=".3em" text-anchor="middle">SUV</text></svg>
+            <h2 class="fw-normal mt-3">SUVs Espaçosos</h2>
+            <p>Para quem busca conforto em viagens com a família ou precisa de mais espaço de porta-malas.</p>
+            <p><a class="btn btn-secondary" href="Listagem_veiculos.html">Ver modelos &raquo;</a></p>
+          </div>
+          
+          <div class="col-lg-4 text-center">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect><text x="50%" y="50%" fill="#fff" dy=".3em" text-anchor="middle">VIP</text></svg>
+            <h2 class="fw-normal mt-3">Seja um Cliente</h2>
+            <p>Faça seu cadastro no sistema e aproveite descontos progressivos em locações recorrentes.</p>
+            <p><a class="btn btn-secondary" href="Cadastro_clientes.html">Cadastrar &raquo;</a></p>
+          </div>
         </div>
 
-        <!-- Conteúdo Principal / Colunas -->
-        <div class="container marketing">
-            
-            <!-- Três colunas de acesso rápido -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- Placeholder de imagem redonda -->
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                    <h2 class="fw-normal mt-3">Econômicos</h2>
-                    <p>Perfeitos para o dia a dia na cidade. Baixo consumo de combustível e fáceis de estacionar.</p>
-                    <p><a class="btn btn-secondary" href="lista-veiculos.html">Ver modelos &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                    <h2 class="fw-normal mt-3">SUVs Espaçosos</h2>
-                    <p>Para quem busca conforto em viagens com a família ou precisa de mais espaço de porta-malas.</p>
-                    <p><a class="btn btn-secondary" href="lista-veiculos.html">Ver modelos &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                    <h2 class="fw-normal mt-3">Seja um Cliente</h2>
-                    <p>Faça seu cadastro no sistema e aproveite descontos progressivos em locações recorrentes.</p>
-                    <p><a class="btn btn-secondary" href="cadastro-cliente.html">Cadastrar &raquo;</a></p>
-                </div>
-            </div>
-
-            <!-- Início das Featurettes -->
-            <hr class="featurette-divider">
-
-            <div class="row featurette align-items-center">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">Gestão de Clientes simplificada. <span class="text-muted">Tudo em um só lugar.</span></h2>
-                    <p class="lead">Mantenha os dados dos locatários atualizados com nosso módulo de cadastro rápido. Verifique documentações e histórico de aluguéis em poucos cliques.</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=500&auto=format&fit=crop" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" alt="Atendimento ao cliente">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- Fim das Featurettes -->
+        <hr class="featurette-divider" />
+        <div class="row featurette align-items-center">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Gestão de Clientes simplificada. <span class="text-body-secondary">Tudo em um só lugar.</span></h2>
+            <p class="lead">Mantenha os dados dos locatários atualizados com nosso módulo de cadastro rápido. Verifique documentações e histórico de aluguéis em poucos cliques.</p>
+          </div>
+          <div class="col-md-5">
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=500&auto=format&fit=crop" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" alt="Atendimento ao cliente">
+          </div>
         </div>
 
-        <!-- Rodapé -->
-        <footer class="container">
-            <p class="float-end"><a href="#">Voltar ao topo</a></p>
-            <p>&copy; 2026 Sistema de Aluguel de carros SapiensCar &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
-        </footer>
+        <hr class="featurette-divider" />
+        <div class="row featurette align-items-center">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Controle de Frota. <span class="text-body-secondary">Eficiência máxima.</span></h2>
+            <p class="lead">Saiba exatamente quais veículos estão disponíveis, alugados ou em manutenção. O cadastro detalhado inclui placa, chassi, ano e valor da diária.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=500&auto=format&fit=crop" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" alt="Frota de carros">
+          </div>
+        </div>
+        <hr class="featurette-divider" />
+      </div>
+
+      <footer class="container">
+        <p class="float-end"><a href="#">Voltar ao topo</a></p>
+        <p>&copy; 2026 SapiensCar Locadora. &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
+      </footer>
     </main>
-
-    <!-- Bootstrap JS + Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
